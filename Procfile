@@ -1,0 +1,1 @@
+web: gunicorn fstapp.wsgi --log-file -
