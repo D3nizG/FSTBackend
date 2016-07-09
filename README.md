@@ -8,7 +8,7 @@ Backend for FST app
 * For more info on django go to https://docs.djangoproject.com/en/1.9/intro/tutorial01/
 
 #How to test
-* Just type python manage.py runserver and go to http://127.0.0.1/admin
+* Just type python manage.py runserver and go to http://127.0.0.1:8000/admin
 * You should see a login page which means it is working, if you have a username and password you can login to add new data to the database
 * The public domain for the backend resides at https://infinite-citadel-20637.herokuapp.com
 
