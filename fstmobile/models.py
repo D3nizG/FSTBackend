@@ -35,3 +35,12 @@ class Scholarship(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class Place(models.Model):
+	fullname = models.CharField(max_length=255)
+	shortname = models.CharField(max_length=255)
+	department = models.CharField(max_length=255)
+	location = models.CharField(max_length=50)
+
+	def __str__(self):
+		return self.shortname

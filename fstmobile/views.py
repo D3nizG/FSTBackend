@@ -6,11 +6,13 @@ from rest_framework import status
 from fstmobile.serializers import ContactSerializer
 from fstmobile.serializers import NewsSerializer
 from fstmobile.serializers import ScholarshipSerializer
-from fstmobile.models import Contact
 from fstmobile.serializers import FAQSerializer
+from fstmobile.serializers import PlaceSerializer
+from fstmobile.models import Contact
 from fstmobile.models import FAQ
 from fstmobile.models import News
 from fstmobile.models import Scholarship
+from fstmobile.models import Place
 
 # Create your views here.
 
@@ -46,4 +48,12 @@ class ListScholarship(APIView):
 
 		scholarship = Scholarship.objects.all()
 		serializer = ScholarshipSerializer(scholarship,many=True)
+		return Response(serializer.data)
+
+class ListPlaces(APIView):
+
+	def get(self,request,format=None):
+
+		places = Place.objects.all();
+		serializer = PlaceSerializer(places,many=True)
 		return Response(serializer.data)
