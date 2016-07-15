@@ -1,5 +1,6 @@
 from fstmobile.models import Contact
 from fstmobile.models import FAQ
+from fstmobile.models import News
 from rest_framework import serializers
 
 
@@ -12,3 +13,8 @@ class FAQSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = FAQ
 		fields  = ('id','question','answer')
+
+class NewsSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = News
+		fields = ('id','created','title','description','image_url','story')

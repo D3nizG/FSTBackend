@@ -4,17 +4,16 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from fstmobile.serializers import ContactSerializer
+from fstmobile.serializers import NewsSerializer
 from fstmobile.models import Contact
 from fstmobile.serializers import FAQSerializer
 from fstmobile.models import FAQ
+from fstmobile.models import News
+
 # Create your views here.
-
-
 
 def index(request):
 	return render_to_response('fstmobile/index.html')
-
-
 
 class ListContacts(APIView):
 
@@ -29,4 +28,12 @@ class ListFAQs(APIView):
 	def get(self,request,format=None):
 		faqs = FAQ.objects.all()
 		serializer = FAQSerializer(faqs,many=True)
+		return Response(serializer.data)
+
+class ListNews(APIView):
+
+	def get(self,request,format=None):
+
+		news = News.objects.all()
+		serializer = NewsSerializer(news,many=True)
 		return Response(serializer.data)

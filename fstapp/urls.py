@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^contacts/$', views.ListContacts.as_view()),
     url(r'^faqs/$', views.ListFAQs.as_view()),
+    url(r'^news/$', views.ListNews.as_view()),
 
 ]
