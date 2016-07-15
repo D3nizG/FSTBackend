@@ -4,6 +4,7 @@ Backend for FST app
 #How to Contribute
 * Make sure you have django installed,in your command line type pip install django
 * Just clone
+* type pip install -r requirements.txt to install the packages
 * Push changes
 * For more info on django go to https://docs.djangoproject.com/en/1.9/intro/tutorial01/
 
