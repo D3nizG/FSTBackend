@@ -45,5 +45,5 @@ class ListScholarship(APIView):
 	def get(self,request,format=None):
 
 		scholarship = Scholarship.objects.all()
-		serializer = ScholarshipSerializer(scholaraship,many=True)
+		serializer = ScholarshipSerializer(scholarship,many=True)
 		return Response(serializer.data)
