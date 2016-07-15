@@ -11,12 +11,9 @@ class Contact(models.Model):
 	def __str__(self):
 		return self.name
 
-<<<<<<< HEAD
 class FAQ(models.Model):
 	question = models.CharField(max_length=255);
 	answer = models.CharField(max_length=255);
-=======
-
 
 class News(models.Model):
 	title = models.CharField(max_length=255)
@@ -27,8 +24,3 @@ class News(models.Model):
 
 	def __str__(self):
 		return self.title
-
-
-
-
->>>>>>> f368b53d212f5ed62b0432e071b4a7b4f261f235
