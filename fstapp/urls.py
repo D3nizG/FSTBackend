@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^$','fstmobile.views.index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^contacts/$', views.ListContacts.as_view()),
+    url(r'^news/$', views.ListNews.as_view()),
 
 ]
