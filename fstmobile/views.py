@@ -5,10 +5,12 @@ from rest_framework.response import Response
 from rest_framework import status
 from fstmobile.serializers import ContactSerializer
 from fstmobile.serializers import NewsSerializer
+from fstmobile.serializers import ScholarshipSerializer
 from fstmobile.models import Contact
 from fstmobile.serializers import FAQSerializer
 from fstmobile.models import FAQ
 from fstmobile.models import News
+from fstmobile.models import Scholarship
 
 # Create your views here.
 
@@ -36,4 +38,12 @@ class ListNews(APIView):
 
 		news = News.objects.all()
 		serializer = NewsSerializer(news,many=True)
+		return Response(serializer.data)
+
+class ListScholarship(APIView):
+	
+	def get(self,request,format=None):
+
+		scholarship = Scholarship.objects.all()
+		serializer = ScholarshipSerializer(scholaraship,many=True)
 		return Response(serializer.data)
