@@ -24,3 +24,14 @@ class News(models.Model):
 
 	def __str__(self):
 		return self.title
+
+
+class Scholarship(models.Model):
+	name = models.CharField(max_length=255)
+	description = models.CharField(max_length=400)
+	detail = models.TextField()
+	image_url = models.CharField(max_length=255)
+	created = models.DateTimeField('auto_now_add=true',editable=False,default=datetime.datetime.now())
+
+	def __str__(self):
+		return self.name
