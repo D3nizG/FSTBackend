@@ -42,6 +42,13 @@ class ListFAQs(APIView):
 		serializer = FAQSerializer(faqs,many=True)
 		return Response(serializer.data)
 
+	def post(self,request,format=None):
+		serializer = FAQSerializer(data=request.data)
+		if(serializer.is_valid()):
+			serializer.save()
+			return Response(serializer.data,status=status.HTTP_201_CREATED)
+		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
 class ListNews(APIView):
 
 	def get(self,request,format=None):
@@ -51,7 +58,7 @@ class ListNews(APIView):
 		return Response(serializer.data)
 
 class ListScholarship(APIView):
-	
+
 	def get(self,request,format=None):
 
 		scholarship = Scholarship.objects.all()
