@@ -24,7 +24,7 @@ class NewsSerializer(serializers.ModelSerializer):
 class ScholarshipSerializer(serializers.ModelSerializer):
         class Meta:
                 model = Scholarship
-                fields = ('id', 'name','description', 'detail', 'image_url')
+                fields = ('id', 'name','description', 'detail')
 
 class PlaceSerializer(serializers.ModelSerializer):
 	class Meta:
