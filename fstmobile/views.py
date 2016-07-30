@@ -57,6 +57,15 @@ class ListNews(APIView):
 		serializer = NewsSerializer(news,many=True)
 		return Response(serializer.data)
 
+	def post(self,request,format=None):
+		serializer = NewsSerializer(data=request.data)
+		if(serializer.is_valid()):
+			serializer.save()
+			return Response(serializer.data,status=status.HTTP_201_CREATED)
+		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+
+
 class ListScholarship(APIView):
 
 	def get(self,request,format=None):
@@ -65,6 +74,13 @@ class ListScholarship(APIView):
 		serializer = ScholarshipSerializer(scholarship,many=True)
 		return Response(serializer.data)
 
+	def post(self,request,format=None):
+		serializer = ScholarshipSerializer(data=request.data)
+		if(serializer.is_valid()):
+			serializer.save()
+			return Response(serializer.data,status=status.HTTP_201_CREATED)
+		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
 class ListPlaces(APIView):
 
 	def get(self,request,format=None):
@@ -72,3 +88,10 @@ class ListPlaces(APIView):
 		places = Place.objects.all();
 		serializer = PlaceSerializer(places,many=True)
 		return Response(serializer.data)
+
+	def post(self,request,format=None):
+		serializer = PlaceSerializer(data=request.data)
+		if(serializer.is_valid()):
+			serializer.save()
+			return Response(serializer.data,status=status.HTTP_201_CREATED)
+		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
