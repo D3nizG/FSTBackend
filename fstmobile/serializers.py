@@ -9,7 +9,7 @@ from rest_framework import serializers
 class ContactSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Contact
-		fields = ('id','name','number')
+		fields = ('id','name','number','email','website')
 
 class FAQSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -19,7 +19,7 @@ class FAQSerializer(serializers.ModelSerializer):
 class NewsSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = News
-		fields = ('id','created','title','description','image_url','story')
+		fields = ('id','created','title','description','image_url','story','news_url')
 
 class ScholarshipSerializer(serializers.ModelSerializer):
         class Meta:

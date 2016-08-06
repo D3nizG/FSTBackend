@@ -7,6 +7,8 @@ from django.utils import timezone
 class Contact(models.Model):
 	name = models.CharField(max_length=255)
 	number = models.CharField(max_length=255)
+	email = models.CharField(max_length=255,default='None')
+	website = models.CharField(max_length=255,default='None')
 
 	def __str__(self):
 		return self.name
@@ -24,6 +26,7 @@ class News(models.Model):
 	story = models.TextField()
 	image_url = models.CharField(max_length=255)
 	created = models.DateTimeField('auto_now_add=true',editable=False,default=timezone.now())
+	news_url = models.CharField(max_length=255,default='None')
 	
 
 	def __str__(self):
