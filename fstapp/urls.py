@@ -15,5 +15,6 @@ urlpatterns = [
     url(r'^scholarship/$', views.ListScholarship.as_view()),
     url(r'^places/$', views.ListPlaces.as_view()),
     url(r'^events/$',views.ListEvents.as_view()),
+    url(r'^images/$',views.ListImages.as_view()),
     
 ]

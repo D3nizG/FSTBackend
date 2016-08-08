@@ -4,6 +4,7 @@ from fstmobile.models import News
 from fstmobile.models import Scholarship
 from fstmobile.models import Place
 from fstmobile.models import Event
+from fstmobile.models import Image
 from rest_framework import serializers
 
 
@@ -36,3 +37,9 @@ class EventSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Event
 		fields = ('id','title','date','description')
+
+class ImageSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Image
+		fields = ('id','name','url')
+		

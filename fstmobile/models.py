@@ -58,3 +58,10 @@ class Event(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class Image(models.Model):
+	name = models.CharField(max_length=255)
+	url = models.CharField(max_length=300)
+
+	def __str__(self):
+		return self.name
