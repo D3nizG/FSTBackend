@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^news/$', views.ListNews.as_view()),
     url(r'^scholarship/$', views.ListScholarship.as_view()),
     url(r'^places/$', views.ListPlaces.as_view()),
+    url(r'^events/$',views.ListEvents.as_view()),
     
 ]

@@ -3,6 +3,7 @@ from fstmobile.models import FAQ
 from fstmobile.models import News
 from fstmobile.models import Scholarship
 from fstmobile.models import Place
+from fstmobile.models import Event
 from rest_framework import serializers
 
 
@@ -30,3 +31,8 @@ class PlaceSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Place
 		fields = ('id','fullname','shortname','department','location')
+
+class EventSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Event
+		fields = ('id','title','date','description')

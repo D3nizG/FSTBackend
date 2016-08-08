@@ -6,14 +6,15 @@ from rest_framework import status
 from fstmobile.serializers import ContactSerializer
 from fstmobile.serializers import NewsSerializer
 from fstmobile.serializers import ScholarshipSerializer
-from fstmobile.models import Contact
 from fstmobile.serializers import FAQSerializer
 from fstmobile.serializers import PlaceSerializer
+from fstmobile.serializers import EventSerializer
 from fstmobile.models import Contact
 from fstmobile.models import FAQ
 from fstmobile.models import News
 from fstmobile.models import Scholarship
 from fstmobile.models import Place
+from fstmobile.models import Event
 
 # Create your views here.
 
@@ -95,3 +96,20 @@ class ListPlaces(APIView):
 			serializer.save()
 			return Response(serializer.data,status=status.HTTP_201_CREATED)
 		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+
+class ListEvents(APIView):
+
+	def get(self,request,format=None):
+		events = Event.objects.all()
+		serializer = EventSerializer(events,many=True)
+		return Response(serializer.data)
+
+	def post(self,request,format=None):
+		serializer = EventSerializer(data=request.data)
+		if(serializer.is_valid()):
+			serializer.save()
+			return Response(serializer.data,status=status.HTTP_201_CREATED)
+		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+
