@@ -46,7 +46,7 @@ class Place(models.Model):
 	fullname = models.CharField(max_length=255)
 	shortname = models.CharField(max_length=255)
 	department = models.CharField(max_length=255)
-	location = models.CharField(max_length=300)
+	location = models.CharField(max_length=2000)
 
 	def __str__(self):
 		return self.shortname
