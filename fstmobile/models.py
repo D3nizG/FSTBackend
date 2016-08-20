@@ -61,7 +61,7 @@ class Event(models.Model):
 
 class Image(models.Model):
 	name = models.CharField(max_length=255)
-	url = models.CharField(max_length=300)
+	url = models.CharField(max_length=2000)
 
 	def __str__(self):
 		return self.name
