@@ -31,12 +31,12 @@ class ListContacts(APIView):
 		serializer = ContactSerializer(contacts,many=True)
 		return Response(serializer.data)
 
-	def post(self,request,format=None):
-		serializer = ContactSerializer(data=request.data)
-		if(serializer.is_valid()):
-			serializer.save()
-			return Response(serializer.data,status=status.HTTP_201_CREATED)
-		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+	#def post(self,request,format=None):
+	#	serializer = ContactSerializer(data=request.data)
+	#	if(serializer.is_valid()):
+	#		serializer.save()
+	#		return Response(serializer.data,status=status.HTTP_201_CREATED)
+	#	return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class ListFAQs(APIView):
 
@@ -45,12 +45,12 @@ class ListFAQs(APIView):
 		serializer = FAQSerializer(faqs,many=True)
 		return Response(serializer.data)
 
-	def post(self,request,format=None):
-		serializer = FAQSerializer(data=request.data)
-		if(serializer.is_valid()):
-			serializer.save()
-			return Response(serializer.data,status=status.HTTP_201_CREATED)
-		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+	#def post(self,request,format=None):
+	#	serializer = FAQSerializer(data=request.data)
+	#	if(serializer.is_valid()):
+	#		serializer.save()
+	#		return Response(serializer.data,status=status.HTTP_201_CREATED)
+	#	return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class ListNews(APIView):
 
@@ -60,12 +60,12 @@ class ListNews(APIView):
 		serializer = NewsSerializer(news,many=True)
 		return Response(serializer.data)
 
-	def post(self,request,format=None):
-		serializer = NewsSerializer(data=request.data)
-		if(serializer.is_valid()):
-			serializer.save()
-			return Response(serializer.data,status=status.HTTP_201_CREATED)
-		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+	#def post(self,request,format=None):
+	#	serializer = NewsSerializer(data=request.data)
+	#	if(serializer.is_valid()):
+	#		serializer.save()
+	#		return Response(serializer.data,status=status.HTTP_201_CREATED)
+	#	return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
 
@@ -77,12 +77,12 @@ class ListScholarship(APIView):
 		serializer = ScholarshipSerializer(scholarship,many=True)
 		return Response(serializer.data)
 
-	def post(self,request,format=None):
-		serializer = ScholarshipSerializer(data=request.data)
-		if(serializer.is_valid()):
-			serializer.save()
-			return Response(serializer.data,status=status.HTTP_201_CREATED)
-		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+	#def post(self,request,format=None):
+	#	serializer = ScholarshipSerializer(data=request.data)
+	#	if(serializer.is_valid()):
+	#		serializer.save()
+	#		return Response(serializer.data,status=status.HTTP_201_CREATED)
+	#	return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class ListPlaces(APIView):
 
@@ -92,12 +92,12 @@ class ListPlaces(APIView):
 		serializer = PlaceSerializer(places,many=True)
 		return Response(serializer.data)
 
-	def post(self,request,format=None):
-		serializer = PlaceSerializer(data=request.data)
-		if(serializer.is_valid()):
-			serializer.save()
-			return Response(serializer.data,status=status.HTTP_201_CREATED)
-		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+	#def post(self,request,format=None):
+	#	serializer = PlaceSerializer(data=request.data)
+	#	if(serializer.is_valid()):
+	#		serializer.save()
+	#		return Response(serializer.data,status=status.HTTP_201_CREATED)
+	#	return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
 class ListEvents(APIView):
@@ -107,12 +107,12 @@ class ListEvents(APIView):
 		serializer = EventSerializer(events,many=True)
 		return Response(serializer.data)
 
-	def post(self,request,format=None):
-		serializer = EventSerializer(data=request.data)
-		if(serializer.is_valid()):
-			serializer.save()
-			return Response(serializer.data,status=status.HTTP_201_CREATED)
-		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+	#def post(self,request,format=None):
+	#	serializer = EventSerializer(data=request.data)
+	#	if(serializer.is_valid()):
+	#		serializer.save()
+	#		return Response(serializer.data,status=status.HTTP_201_CREATED)
+	#	return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class ListImages(APIView):
 
@@ -121,11 +121,11 @@ class ListImages(APIView):
 		serializer = ImageSerializer(images,many=True)
 		return Response(serializer.data)
 
-	def post(self,request,format=None):
-		serializer = ImageSerializer(data=request.data)
-		if(serializer.is_valid()):
-			serializer.save()
-			return Response(serializer.data,status=status.HTTP_201_CREATED)
-		return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+	#def post(self,request,format=None):
+	#	serializer = ImageSerializer(data=request.data)
+	#	if(serializer.is_valid()):
+	#		serializer.save()
+	#		return Response(serializer.data,status=status.HTTP_201_CREATED)
+	#	return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 

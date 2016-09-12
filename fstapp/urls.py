@@ -7,7 +7,7 @@ urlpatterns = [
 
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$','fstmobile.views.index'),
+    #url(r'^$','fstmobile.views.index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^contacts/$', views.ListContacts.as_view()),
     url(r'^faqs/$', views.ListFAQs.as_view()),

@@ -15,11 +15,14 @@ class Contact(models.Model):
 
 class FAQ(models.Model):
 	question = models.CharField(max_length=255);
-	answer = models.CharField(max_length=255);
+	answer = models.TextField();
 
 	def __str__(self):
 		return self.question
 
+	def __unicode__(self):
+		return self.question
+         
 class News(models.Model):
 	title = models.CharField(max_length=255)
 	description = models.CharField(max_length=400)
