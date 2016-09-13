@@ -84,15 +84,35 @@ class Image(models.Model):
 	name = models.CharField(max_length=255)
 	url = models.CharField(max_length=2000)
 	
-	def save(self,force_insert=False,force_update=False,using=None):
-		if(not self.id):
-			topic_name = "gallery"
-			message_title = "FaST Mobile"
-			message_body = "New images"
-			data_message = {"activity" : "Gallery"}
-			result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
+	#def save(self,force_insert=False,force_update=False,using=None):
+		#if(not self.id):
+		#	topic_name = "gallery"
+		#	message_title = "FaST Mobile"
+		#	message_body = "New images"
+		#	data_message = {"activity" : "Gallery"}
+		#	result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
 				
-		super(Image,self).save()
+		#super(Image,self).save()
 
 	def __str__(self):
 		return self.name
+
+
+class Alert(models.Model):
+	title = models.CharField(max_length=255)
+	description = models.TextField()
+	date = models.DateTimeField('auto_now_add=true',editable=False,default=timezone.now())
+
+	def save(self,force_insert=False,force_update=False,using=None):
+		if(not self.id):
+			topic_name = "alert"
+			message_title = self.title
+			message_body = self.description
+			data_message = {"activity" : "Alerts"}
+			result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
+		super(Image,self).save()
+
+	def __str__(self):
+		return self.title
+
+

@@ -10,6 +10,7 @@ from fstmobile.serializers import FAQSerializer
 from fstmobile.serializers import PlaceSerializer
 from fstmobile.serializers import EventSerializer
 from fstmobile.serializers import ImageSerializer
+from fstmobile.serializers import AlertSerializer
 from fstmobile.models import Contact
 from fstmobile.models import FAQ
 from fstmobile.models import News
@@ -17,6 +18,7 @@ from fstmobile.models import Scholarship
 from fstmobile.models import Place
 from fstmobile.models import Event
 from fstmobile.models import Image
+from fstmobile.models import Alert
 
 # Create your views here.
 
@@ -127,5 +129,13 @@ class ListImages(APIView):
 	#		serializer.save()
 	#		return Response(serializer.data,status=status.HTTP_201_CREATED)
 	#	return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+class ListAlerts(APIView):
+
+	def get(self,request,format=None):
+		alerts = Alert.objects.all()
+		serializer = AlertSerializer(alerts,many=True)
+		return Response(serializer.data)
+
 
 

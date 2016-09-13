@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^places/$', views.ListPlaces.as_view()),
     url(r'^events/$',views.ListEvents.as_view()),
     url(r'^images/$',views.ListImages.as_view()),
+    url(r'^alerts/$',views.ListAlerts.as_view()),
     
 ]
