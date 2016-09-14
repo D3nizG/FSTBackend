@@ -6,6 +6,7 @@ from fstmobile.models import Scholarship
 from fstmobile.models import Place
 from fstmobile.models import Event
 from fstmobile.models import Image
+from fstmobile.models import Alert
 
 # Register your models here.
 admin.site.register(Contact)

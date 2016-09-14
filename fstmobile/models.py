@@ -7,9 +7,7 @@ from pyfcm import FCMNotification
 
 push_service = FCMNotification(api_key="AIzaSyABxZFZP7rGIh8WEcLHUTr-_WFfF3PsgNg")
 registration_id = "du8w3oCriUI:APA91bHXyesmWtGJ0MoK4SBHs2z1xP2QGRosPr9HuO-oZ" \
-
                   "UWa-0MaMWgud4YGm9YMazF7WpGBPUva3esNiA69b0ebQR-gt6VA16mc_FX2t" \
-
                   "ARaVBw9hD8-N87vxMC_beIVzYJpW3hxXeQ4"
 
 class Contact(models.Model):
@@ -84,21 +82,22 @@ class Image(models.Model):
 	name = models.CharField(max_length=255)
 	url = models.CharField(max_length=2000)
 	
-	#def save(self,force_insert=False,force_update=False,using=None):
-		#if(not self.id):
-		#	topic_name = "gallery"
-		#	message_title = "FaST Mobile"
-		#	message_body = "New images"
-		#	data_message = {"activity" : "Gallery"}
-		#	result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
+	def save(self,force_insert=False,force_update=False,using=None):
+		if(not self.id):
+			topic_name = "gallery"
+			message_title = "FaST Mobile"
+			message_body = "New images"
+			data_message = {"activity" : "Gallery"}
+			result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
 				
-		#super(Image,self).save()
+		super(Image,self).save()
 
 	def __str__(self):
 		return self.name
 
 
 class Alert(models.Model):
+	
 	title = models.CharField(max_length=255)
 	description = models.TextField()
 	date = models.DateTimeField('auto_now_add=true',editable=False,default=timezone.now())
@@ -106,11 +105,11 @@ class Alert(models.Model):
 	def save(self,force_insert=False,force_update=False,using=None):
 		if(not self.id):
 			topic_name = "alert"
-			message_title = self.title
-			message_body = self.description
+			message_title = "New Alert"
+			message_body = "Important alert"
 			data_message = {"activity" : "Alerts"}
 			result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
-		super(Image,self).save()
+		super(Alert,self).save()
 
 	def __str__(self):
 		return self.title
