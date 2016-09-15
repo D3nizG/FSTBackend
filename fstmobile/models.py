@@ -104,9 +104,9 @@ class Alert(models.Model):
 
 	def save(self,force_insert=False,force_update=False,using=None):
 		if(not self.id):
-			topic_name = "alert"
+			topic_name = "alerts"
 			message_title = "New Alert"
-			message_body = "Important alert"
+			message_body = self.title
 			data_message = {"activity" : "Alerts"}
 			result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
 		super(Alert,self).save()
