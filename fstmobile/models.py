@@ -5,7 +5,7 @@ from pyfcm import FCMNotification
 
 # Create your models here.
 
-push_service = FCMNotification(api_key="AIzaSyABxZFZP7rGIh8WEcLHUTr-_WFfF3PsgNg")
+push_service = FCMNotification(api_key="AIzaSyAiYa-_3oN-JK9OoqEt0B43X1TWiKHfZJo")
 
 
 class Contact(models.Model):
