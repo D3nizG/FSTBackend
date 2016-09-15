@@ -6,9 +6,7 @@ from pyfcm import FCMNotification
 # Create your models here.
 
 push_service = FCMNotification(api_key="AIzaSyABxZFZP7rGIh8WEcLHUTr-_WFfF3PsgNg")
-registration_id = "du8w3oCriUI:APA91bHXyesmWtGJ0MoK4SBHs2z1xP2QGRosPr9HuO-oZ" \
-                  "UWa-0MaMWgud4YGm9YMazF7WpGBPUva3esNiA69b0ebQR-gt6VA16mc_FX2t" \
-                  "ARaVBw9hD8-N87vxMC_beIVzYJpW3hxXeQ4"
+
 
 class Contact(models.Model):
 	name = models.CharField(max_length=255)
@@ -38,12 +36,12 @@ class News(models.Model):
 	news_url = models.CharField(max_length=255,default='None')
 
 	def save(self,force_insert=False,force_update=False,using=None):
-		#if(not self.id):
-		#	topic_name = "news"
-		#	message_title = "FaST Mobile"
-		#	message_body = "New news story"
-		#	data_message = {"activity" : "News"}
-		#	result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
+		if(not self.id):
+			topic_name = "news"
+			message_title = "New news story"
+			message_body = self.title
+			data_message = {"activity" : "News"}
+			result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
 			
 		super(News,self).save()
 
@@ -82,15 +80,15 @@ class Image(models.Model):
 	name = models.CharField(max_length=255)
 	url = models.CharField(max_length=2000)
 	
-	def save(self,force_insert=False,force_update=False,using=None):
-		if(not self.id):
-			topic_name = "gallery"
-			message_title = "FaST Mobile"
-			message_body = "New images"
-			data_message = {"activity" : "Gallery"}
-			result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
+	#def save(self,force_insert=False,force_update=False,using=None):
+	#	if(not self.id):
+	#		topic_name = "gallery"
+	#		message_title = "FaST Mobile"
+	#		message_body = "New images"
+	#		data_message = {"activity" : "Gallery"}
+	#		result = push_service.notify_topic_subscribers(topic_name=topic_name,message_title=message_title,message_body=message_body,data_message=data_message)
 				
-		super(Image,self).save()
+	#	super(Image,self).save()
 
 	def __str__(self):
 		return self.name
